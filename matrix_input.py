@@ -25,10 +25,12 @@ def string2num(s):
         except ValueError:
             return 0
 
-def read_matrix(a = [[""]]):
+def read_matrix(a = None):
+    if not a:
+        a = [[""]]
     stdscr = startcurses()
     while True:
-        c = readchar()
+        c = str(readchar())
         if c == ' ' and (len(a) == 1 or len(a[-1]) < len(a[0])):
             a[-1][-1] = string2num(a[-1][-1])
             a[-1].append("")
