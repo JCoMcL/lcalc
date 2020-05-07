@@ -25,9 +25,12 @@ def string2num(s):
             return 0
 
 def read_matrix(a = None):
-    if not a:
-        a = [[""]]
     stdscr = startcurses()
+    if a is None:
+        a = [[""]]
+    else:
+        a[-1][-1] = str(a[-1][-1])
+        show_matrix(a, stdscr)
     while True:
         c = stdscr.getkey()
         if c == ' ' and (len(a) == 1 or len(a[-1]) < len(a[0])):
