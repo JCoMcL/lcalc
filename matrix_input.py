@@ -39,7 +39,7 @@ def read_matrix(a = None):
         
         elif c == '\n' or c == ' ': #return
             #exit function by pressing return twice
-            if not a[-1][0]:
+            if a[-1][0] is not None:
                 a.pop()
                 endcurses(stdscr)
                 return matrix(a)
